@@ -18,7 +18,7 @@ services:
       dockerfile: ./apps/api/dockerfile
     restart: always
     ports:
-      - 3001:3001
+      - 4200:4200
     networks:
       - app_network
 
