@@ -18,5 +18,8 @@ gmc:
 	make gm
 	git checkout -
 
-dev:
-	yarn dev
+client:
+	cd apps/client/ && yarn && yarn dev
+
+api:
+	cd apps/api/ && npm i && npm run start:dev
