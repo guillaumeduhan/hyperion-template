@@ -33,14 +33,10 @@ export const OTP: FC<{
       setLoading(true);
       const response = await fetcher('/api/auth/verify', 'POST', { email, token, type: 'email' });
       const { error, access_token } = response;
-      if (error) {
-        return setError('Sorry an error occurred. Please try again later.');
-      }
+      if (error) return setError('Sorry an error occurred. Please try again later.');
 
-      if (access_token) {
-        setValue(access_token)
-        router.push('/#')
-      }
+      setValue(access_token)
+      router.push('/#')
     } catch (error: any) {
       setError("An unexpected error occurred. Please try again.");
       throw new Error(error);
@@ -76,7 +72,7 @@ export const OTP: FC<{
           </InputOTPGroup>
         </InputOTP>
       </div>
-      {error && <div className="alert alert-danger">{error}</div>}
+      {error && <div className="alert alert--danger">{error}</div>}
       <footer className="grid items-center gap-2">
         <ButtonComponent
           onClick={() => verifyCode()}
@@ -157,7 +153,7 @@ const Login = () => {
                 />
               </div>
             </div>
-            {error && <div className="alert alert-danger">{error}</div>}
+            {error && <div className="alert alert--danger">{error}</div>}
             <ButtonComponent {...{
               label: !create ? "Login" : "Create a new account",
               loading,

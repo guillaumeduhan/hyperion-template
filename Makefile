@@ -1,6 +1,16 @@
 # type make gt in your terminal to trigger your commit
 # no need to make named commit at this step
 
+# launch apps
+
+client:
+	cd apps/client/ && yarn && yarn dev
+
+api:
+	cd apps/api/ && npm i && npm run start:dev
+	
+# github
+
 gt:
 	git add .
 	git commit -m "commit"
@@ -18,8 +28,7 @@ gmc:
 	make gm
 	git checkout -
 
-client:
-	cd apps/client/ && yarn && yarn dev
+# others
 
-api:
-	cd apps/api/ && npm i && npm run start:dev
+root:
+	cd ../..

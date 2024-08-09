@@ -1,18 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logoImage from '../../public/logo.jpg';
+import Logo from '../../public/logo.png';
 
-export default function Logo({ dark, width = 50, height = 32 }: any) {
+export default function LogoComponent({ text = true }: any) {
   return (
-    <Link className="shrink-0" href="/">
-      <Image
-        src={logoImage}
-        alt="Allocations.com"
-        width={width}
-        height={height}
-        className="cursor-pointer"
-        loading="eager"
-      />
+    <Link className="shrink-0 flex gap-2 items-center" href="/">
+      {!text && <div className="rounded w-8 overflow-hidden">
+        <Image src={Logo} alt="hyperion" />
+      </div>}
+      {text && <h1 className="font-[900] text-[24px]">hyperion</h1>}
     </Link>
   );
 }
